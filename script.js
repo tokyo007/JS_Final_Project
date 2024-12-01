@@ -22,7 +22,7 @@ function upDate(previewPic) {
             messageDiv.innerHTML = "June marks the start of summer, I feel healthy and happy.";
             break;
         default:
-            messageDiv.innerHTML = previewPic.alt + " - hover";
+            messageDiv.innerHTML = previewPic.alt";
     }
     console.log("Mouse over image: " + previewPic.alt);
 }
