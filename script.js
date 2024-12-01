@@ -4,25 +4,25 @@ function upDate(previewPic) {
     let messageDiv = document.getElementById('message');
     switch (previewPic.alt) {
         case 'Month 1: January':
-            messageDiv.innerHTML = "January is a cold month and I hibernate.";
+            messageDiv.innerHTML = "January is a cold month. I like to hibernate.";
             break;
         case 'Month 2: February':
-            messageDiv.innerHTML = "February is also cold and sometimes snowy. Blah!";
+            messageDiv.innerHTML = "February is also cold. I don't go outside much.";
             break;
         case 'Month 3: March':
-            messageDiv.innerHTML = "March brings the start of spring with cold blustry wind.";
+            messageDiv.innerHTML = "March brings the start of spring; but with cold, strong wind.";
             break;
         case 'Month 4: April':
-            messageDiv.innerHTML = "April is often rainy but with an occassional sunny day.";
+            messageDiv.innerHTML = "April is often rainy, and I occassionaly go to cafes.";
             break;
         case 'Month 5: May':
-            messageDiv.innerHTML = "May flowers bloom and I am starting to feel alive.";
+            messageDiv.innerHTML = "May flowers bloom; and I start to feeel alive!";
             break;
         case 'Month 6: June':
-            messageDiv.innerHTML = "June marks the start of summer, I feel healthy and happy.";
+            messageDiv.innerHTML = "June marks the start of summer and I begin to enjoy life.";
             break;
         default:
-            messageDiv.innerHTML = previewPic.alt";
+            messageDiv.innerHTML = previewPic.alt + " - hover";
     }
     console.log("Mouse over image: " + previewPic.alt);
 }
@@ -37,27 +37,27 @@ function focusUpdate(previewPic) {
     let messageDiv = document.getElementById('message');
     switch (previewPic.alt) {
         case 'Month 1: January':
-            messageDiv.innerHTML = "January is a cold month, and I feel sluggish.";
+            messageDiv.innerHTML = "Focused on: January is a cold month, and I feel sluggish.";
             break;
         case 'Month 2: February':
-            messageDiv.innerHTML = "February is also cold and sometimes snowy. I don't like it.";
+            messageDiv.innerHTML = "Focused on: February is also cold and sometimes snowy. I don't like it.";
             break;
         case 'Month 3: March':
-            messageDiv.innerHTML = "March is still cold with a lot of wind.";
+            messageDiv.innerHTML = "Focused on: March is still cold with a lot of wind.";
             break;
         case 'Month 4: April':
-            messageDiv.innerHTML = "April is often rainy with occasional warm days. Has hints of spring.";
+            messageDiv.innerHTML = "Focused on: April is often rainy with occasional warm days. Has hints of spring.";
             break;
         case 'Month 5: May':
-            messageDiv.innerHTML = "May flowers bloom and I start to go outside.";
+            messageDiv.innerHTML = "Focused on: May flowers bloom and I start to go outside.";
             break;
         case 'Month 6: June':
-            messageDiv.innerHTML = "June marks the start of summer and is a great month for my health.";
+            messageDiv.innerHTML = "Focused on: June marks the start of summer and is a great month for my health.";
             break;
         default:
-            messageDiv.innerHTML = previewPic.alt;
+            messageDiv.innerHTML = "Focused on: " + previewPic.alt;
     }
-    console.log(previewPic.alt);
+    console.log("Focus on image: " + previewPic.alt);
 }
 
 function blurUpdate() {
@@ -125,6 +125,28 @@ for (let i = 0; i < images.length; i++) {
             currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
         });
+
+        // Enable tab navigation in the lightbox
+        lightbox.addEventListener('keydown', function (e) {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                if (e.shiftKey) {
+                    // If Shift+Tab, go to previous image
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                } else {
+                    // If Tab, go to next image
+                    currentIndex = (currentIndex + 1) % images.length;
+                }
+                showImage(currentIndex);
+            } else if (e.key === 'Escape') {
+                // Close lightbox on Escape key press
+                document.body.removeChild(lightbox);
+            }
+        });
+
+        // Set focus on the lightbox to capture key events
+        lightbox.setAttribute('tabindex', '0');
+        lightbox.focus();
 
         // Close lightbox on click outside of image
         lightbox.addEventListener('click', function (e) {
