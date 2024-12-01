@@ -12,30 +12,7 @@ function upDate(previewPic) {
     newImage.style.height = '150px';
     messageDiv.appendChild(newImage);
 
-    // Add description below the image
-    let description = document.createElement('p');
-    switch (previewPic.alt) {
-        case 'Month 1: January':
-            description.innerHTML = "January is a cold month.";
-            break;
-        case 'Month 2: February':
-            description.innerHTML = "February is also cold.";
-            break;
-        case 'Month 3: March':
-            description.innerHTML = "March brings the start of spring.";
-            break;
-        case 'Month 4: April':
-            description.innerHTML = "April is often rainy.";
-            break;
-        case 'Month 5: May':
-            description.innerHTML = "May flowers bloom.";
-            break;
-        case 'Month 6: June':
-            description.innerHTML = "June marks the start of summer.";
-            break;
-        default:
-            description.innerHTML = previewPic.alt;
-    }
+  
     messageDiv.appendChild(description);
     console.log("Mouse over image: " + previewPic.alt);
 }
