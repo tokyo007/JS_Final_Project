@@ -2,7 +2,28 @@ let originalMessage = document.getElementById('message').innerHTML;
 
 function upDate(previewPic) {
     let messageDiv = document.getElementById('message');
-    messageDiv.innerHTML = previewPic.alt + " - hover";
+    switch (previewPic.alt) {
+        case 'Month 1: January':
+            messageDiv.innerHTML = "January is a cold month and I hibernate.";
+            break;
+        case 'Month 2: February':
+            messageDiv.innerHTML = "February is also cold and sometimes snowy. Blah!";
+            break;
+        case 'Month 3: March':
+            messageDiv.innerHTML = "March brings the start of spring with cold blustry wind.";
+            break;
+        case 'Month 4: April':
+            messageDiv.innerHTML = "April is often rainy but with an occassional sunny day.";
+            break;
+        case 'Month 5: May':
+            messageDiv.innerHTML = "May flowers bloom and I am starting to feel alive.";
+            break;
+        case 'Month 6: June':
+            messageDiv.innerHTML = "June marks the start of summer, I feel healthy and happy.";
+            break;
+        default:
+            messageDiv.innerHTML = previewPic.alt + " - hover";
+    }
     console.log("Mouse over image: " + previewPic.alt);
 }
 
@@ -14,8 +35,29 @@ function unDo() {
 
 function focusUpdate(previewPic) {
     let messageDiv = document.getElementById('message');
-    messageDiv.innerHTML = "Focused on: " + previewPic.alt;
-    console.log("Focus on image: " + previewPic.alt);
+    switch (previewPic.alt) {
+        case 'Month 1: January':
+            messageDiv.innerHTML = "January is a cold month, and I feel sluggish.";
+            break;
+        case 'Month 2: February':
+            messageDiv.innerHTML = "February is also cold and sometimes snowy. I don't like it.";
+            break;
+        case 'Month 3: March':
+            messageDiv.innerHTML = "March is still cold with a lot of wind.";
+            break;
+        case 'Month 4: April':
+            messageDiv.innerHTML = "April is often rainy with occasional warm days. Has hints of spring.";
+            break;
+        case 'Month 5: May':
+            messageDiv.innerHTML = "May flowers bloom and I start to go outside.";
+            break;
+        case 'Month 6: June':
+            messageDiv.innerHTML = "June marks the start of summer and is a great month for my health.";
+            break;
+        default:
+            messageDiv.innerHTML = previewPic.alt;
+    }
+    console.log(previewPic.alt);
 }
 
 function blurUpdate() {
