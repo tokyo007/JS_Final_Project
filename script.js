@@ -64,9 +64,9 @@ function focusUpdate(previewPic) {
             messageDiv.innerHTML = "June marks the start of summer and is a great month for my health.";
             break;
         default:
-            messageDiv.innerHTML = "Focused on: " + previewPic.alt;
+            messageDiv.innerHTML = previewPic.alt;
     }
-    console.log("Focus on image: " + previewPic.alt);
+    console.log(previewPic.alt);
 }
 
 function blurUpdate() {
