@@ -1,3 +1,12 @@
+function setImages() {
+    let images = document.querySelectorAll('.preview');
+    if (images.length > 0) {
+        images[0].focus(); // Focus on the first image
+        focusUpdate(images[0]); // Update the message based on the first image
+        console.log("Page loaded and set focus on the first image");
+    }
+}
+
 let originalMessage = document.getElementById('message').innerHTML;
 
 function upDate(previewPic) {
@@ -22,7 +31,7 @@ function upDate(previewPic) {
             messageDiv.innerHTML = "June marks the start of summer and I begin to enjoy life.";
             break;
         default:
-            messageDiv.innerHTML = previewPic.alt;
+            messageDiv.innerHTML = previewPic.alt ;
     }
     console.log("Mouse over image: " + previewPic.alt);
 }
@@ -37,22 +46,22 @@ function focusUpdate(previewPic) {
     let messageDiv = document.getElementById('message');
     switch (previewPic.alt) {
         case 'Month 1: January':
-            messageDiv.innerHTML = "Focused on: January is a cold month, and I feel sluggish.";
+            messageDiv.innerHTML = "January is a cold month, and I feel sluggish.";
             break;
         case 'Month 2: February':
-            messageDiv.innerHTML = "Focused on: February is also cold and sometimes snowy. I don't like it.";
+            messageDiv.innerHTML = "February is also cold and sometimes snowy. I don't like it.";
             break;
         case 'Month 3: March':
-            messageDiv.innerHTML = "Focused on: March is still cold with a lot of wind.";
+            messageDiv.innerHTML = "March is still cold with a lot of wind.";
             break;
         case 'Month 4: April':
-            messageDiv.innerHTML = "Focused on: April is often rainy with occasional warm days. Has hints of spring.";
+            messageDiv.innerHTML = "April is often rainy with occasional warm days. Has hints of spring.";
             break;
         case 'Month 5: May':
-            messageDiv.innerHTML = "Focused on: May flowers bloom and I start to go outside.";
+            messageDiv.innerHTML = "May flowers bloom and I start to go outside.";
             break;
         case 'Month 6: June':
-            messageDiv.innerHTML = "Focused on: June marks the start of summer and is a great month for my health.";
+            messageDiv.innerHTML = "June marks the start of summer and is a great month for my health.";
             break;
         default:
             messageDiv.innerHTML = "Focused on: " + previewPic.alt;
